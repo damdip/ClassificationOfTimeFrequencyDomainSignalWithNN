@@ -1,2 +1,3 @@
 # Ignora il dataset e file di dati comuni
 /dataset/
+/utils/__pycache__/

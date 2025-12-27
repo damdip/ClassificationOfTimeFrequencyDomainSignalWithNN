@@ -3,3 +3,7 @@
 /utils/__pycache__/
 /venv/
 /todo.txt
+/logs
+/checkpoints
+/saved_models
+/preprocessed_data.pkl

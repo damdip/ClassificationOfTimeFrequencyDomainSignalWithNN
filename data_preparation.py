@@ -12,15 +12,15 @@ from utils.getIndexesFromNumber import getIndexesFromNumber
 
 def load_signal(file_path):
     """
-    Carica un segnale da file .txt
+    Carica un segnale da file .npy
     
     Args:
-        file_path: percorso del file .txt contenente il segnale
+        file_path: percorso del file .npy contenente il segnale
         
     Returns:
         numpy array con il segnale
     """
-    return np.loadtxt(file_path)
+    return np.load(file_path)
 
 
 def compute_mel_spectrogram(time_signal, sr=22050, n_mels=65, n_fft=2048, hop_length=512):
@@ -87,7 +87,7 @@ def load_dataset_from_folders(dataset_path):
     X , Y = [], []
     for i in range(1, 1601):
         indexes = getIndexesFromNumber(i)  
-        file_path = dataset_path + indexes.split()[0] + '/' + indexes + '.txt'
+        file_path = dataset_path + indexes.split()[0] + '/' + indexes + '.npy'
         signal = load_signal(file_path)
         X.append(signal)
         Y.append(labels[i - 1])  # i-1 perché l'array parte da 0
@@ -239,8 +239,8 @@ if __name__ == "__main__":
     print("=== Esempio di preparazione dati ===\n")
     
     # Percorsi (modifica secondo necessità)
-    dataset_path = "dataset/test_object_1_1mm_spectrograms/"
-    output_file = "preprocessed_data.pkl"
+    dataset_path = "dataset/test_object_2_3mm_mel_spectrograms/"
+    output_file = "preprocessed_data_spectrograms_2_3mm_mel.pkl"
     
     # 1. Carica i dati dalle cartelle
     print("Caricamento dati...")

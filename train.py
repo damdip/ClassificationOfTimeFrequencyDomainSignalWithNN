@@ -173,7 +173,6 @@ def train_model(model, X_train, y_train, X_val, y_val,
     print(f"Batch size: {batch_size}")
     
     if fine_tuning:
-        from model import freeze_layers_for_finetuning
         model = freeze_layers_for_finetuning(model, num_trainable_layers)
     
     print()
@@ -265,7 +264,7 @@ if __name__ == "__main__":
                         help='Enable fine-tuning mode (freeze all layers except last 2)')
     parser.add_argument('--num-trainable-layers', type=int, default=2,
                         help='Number of layers to keep trainable in fine-tuning mode (default: 2)')
-    parser.add_argument('--epochs', type=int, default=10,
+    parser.add_argument('--epochs', type=int, default=30,
                         help='Number of training epochs (default: 10)')
     parser.add_argument('--batch-size', type=int, default=32,
                         help='Batch size (default: 32)')
@@ -275,8 +274,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     # Configurazione
-    DATA_FILE = "preprocessed_data.pkl"
-    MODEL_NAME = "signal_classifier"
+    DATA_FILE = "data_mel_3mm.pkl"
+    MODEL_NAME = "defect_classifier_mel_object_1mm"
     if args.fine_tuning:
         MODEL_NAME += "_finetuned"
     

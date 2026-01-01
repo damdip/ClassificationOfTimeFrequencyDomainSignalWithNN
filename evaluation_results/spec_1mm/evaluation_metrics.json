@@ -1,0 +1,35 @@
+{
+    "accuracy": 0.975,
+    "precision": 0.9753125,
+    "recall": 0.975,
+    "f1_score": 0.9751063606281842,
+    "roc_auc": 0.976716465352829,
+    "confusion_matrix": [
+        [
+            237,
+            5
+        ],
+        [
+            3,
+            75
+        ]
+    ],
+    "class_names": [
+        "Class_0",
+        "Class_1"
+    ],
+    "per_class_metrics": {
+        "Class_0": {
+            "precision": 0.9875,
+            "recall": 0.9793388429752066,
+            "f1": 0.983402489626556,
+            "support": 242
+        },
+        "Class_1": {
+            "precision": 0.9375,
+            "recall": 0.9615384615384616,
+            "f1": 0.9493670886075949,
+            "support": 78
+        }
+    }
+}

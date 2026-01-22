@@ -3,13 +3,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, Input
 
 def build_2d_cnn_model(input_height=65, input_width=113):
-    """
-    Costruisce una CNN 2D basata sull'architettura 1D del paper originale.
-    Input: Spettrogramma Mel (Height=Mel Bands, Width=Time Frames)
-    """
+
     
-    # Definizione della forma dell'input: (Frequenza, Tempo, Canali)
-    # È necessario aggiungere 1 canale alla fine (come se fosse un'immagine in bianco e nero)
+    # Definizione della forma dell'input: (x, y, Canali)
     input_shape = (input_height, input_width, 1)
 
     model = Sequential(name="Spectograms_2D_CNN")
@@ -36,11 +32,10 @@ def build_2d_cnn_model(input_height=65, input_width=113):
     model.add(Dropout(0.5))
 
     # --- CLASSIFICATORE (Testa della rete) ---
-    # Il paper usava GlobalAveragePooling1D, qui usiamo Flatten per linearizzare la matrice 2D
-    # Nota: Si può usare anche GlobalAveragePooling2D se si vuole ridurre drasticamente i parametri
+    # Usiamo Flatten per linearizzare la matrice 2D
     model.add(Flatten())
 
-    # Fully Connected Layers come da paper
+    # Fully Connected Layers 
     model.add(Dense(128, activation='relu'))
     
     # Dropout prima dell'ultimo layer denso
@@ -52,7 +47,7 @@ def build_2d_cnn_model(input_height=65, input_width=113):
     model.add(Dense(2, activation='softmax'))
 
     
-    optimizer = tf.keras.optimizers.Adam(learning_rate=0.01) # Learning rate dal paper: 10^-2
+    optimizer = tf.keras.optimizers.Adam(learning_rate=0.01) # Learning rate: 10^-2
     
     model.compile(optimizer=optimizer,
                   loss='categorical_crossentropy',
@@ -60,6 +55,3 @@ def build_2d_cnn_model(input_height=65, input_width=113):
     
     return model
 
-# Esempio di creazione del modello
-#model_2d = build_2d_cnn_model(input_height=65, input_width=113)
-#model_2d.summary()

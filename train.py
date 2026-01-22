@@ -1,6 +1,4 @@
-"""
-Script per il training del modello
-"""
+
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras

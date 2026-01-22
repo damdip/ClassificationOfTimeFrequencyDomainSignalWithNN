@@ -1,6 +1,4 @@
 
-
-
 ##  dati degli indici come del tipo  A (1)  , questo restituisce il numero 1
 ##  dati degli indici come del tipo Z (2) , questo restituisce il numero 40* numero della lettera nell'alfabeto (A=0, B=1, ..., Z=25) + numero tra parentesi
 ##  dati degli indici come del tipo ZAA, ZAB, ..., ZAN , continuano la numerazione dopo Z

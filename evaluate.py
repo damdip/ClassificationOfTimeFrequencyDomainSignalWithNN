@@ -119,7 +119,6 @@ def plot_confusion_matrix(cm, class_names, output_path="confusion_matrix.png"):
     """
     plt.figure(figsize=(10, 8))
     
-    # Normalizza per mostrare percentuali
     cm_norm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
     
     sns.heatmap(
@@ -153,7 +152,7 @@ def plot_roc_curves(y_true, y_pred_proba, class_names, output_path="roc_curves.p
     """
     n_classes = len(class_names)
     
-    # Se binaria, semplifica
+
     if n_classes == 2:
         y_true_labels = np.argmax(y_true, axis=1)
         fpr, tpr, _ = roc_curve(y_true_labels, y_pred_proba[:, 1])
@@ -240,7 +239,7 @@ def plot_prediction_confidence(y_pred_proba, y_true, output_path="prediction_con
         y_true: label vere
         output_path: percorso per salvare il plot
     """
-    # Confidenza = massima probabilità predetta
+    # Confidenza è massima probabilità predetta
     confidence = np.max(y_pred_proba, axis=1)
     
     # Separa predizioni corrette e sbagliate

@@ -195,7 +195,7 @@ def encode_labels(y):
     """
     from tensorflow.keras.utils import to_categorical
     
-    # Assicurati che le label partano da 0
+    
     unique_labels = np.unique(y)
     print(f"Label uniche: {unique_labels}")
     
@@ -235,10 +235,9 @@ def load_preprocessed_data(filename):
 
 
 if __name__ == "__main__":
-    # Esempio di utilizzo
     print("=== Esempio di preparazione dati ===\n")
     
-    # Percorsi (modifica secondo necessità)
+    
     dataset_path = "dataset/test_object_2_3mm_mel_spectrograms/"
     output_file = "preprocessed_data_spectrograms_2_3mm_mel.pkl"
     
@@ -251,7 +250,7 @@ if __name__ == "__main__":
     print(f"\nDati caricati: {X.shape}")
     print(f"Label caricate: {y.shape}")
     
-    # 2. Prepara per CNN (aggiungi dimensione canale)
+    # 2. Prepara per CNN 
     X = prepare_data_for_cnn(X)
     print(f"Shape dopo prepare_data_for_cnn: {X.shape}")
     

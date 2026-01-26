@@ -311,9 +311,9 @@ if __name__ == "__main__":
     print("=== Evaluation Script ===\n")
     
     # Configurazione
-    DATA_FILE = "data_spec_1mm.pkl"
-    MODEL_PATH = "saved_models/defect_classifier_spec_object_1mm_finetuned.keras"
-    OUTPUT_DIR = Path("evaluation_results/spec_1mm_finetuned")
+    DATA_FILE = "dataset/data_mel_3mm.pkl"
+    MODEL_PATH = "saved_models/defect_classifier_mel_object_1mm_finetuned.keras"
+    OUTPUT_DIR = Path("evaluation_results/mel_finetuned_1mm_on_3mm_data")
     OUTPUT_DIR.mkdir(exist_ok=True)
     
     # 1. Carica i dati preprocessati
